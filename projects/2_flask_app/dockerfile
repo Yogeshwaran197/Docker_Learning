@@ -1,0 +1,16 @@
+
+#install python for container
+FROM python:3.8-slim
+
+#working dir for image
+WORKDIR /app
+
+#copy the current dir into app
+COPY . /app
+
+#install requirements
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python", "app.py"]
+
+
