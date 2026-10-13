@@ -1,0 +1,15 @@
+#pull mysql from docker hub
+FROM mysql:8.0
+
+
+#environment setup for mysql database
+ENV MYSQL_ROOT_PASSWORD=demopassword
+ENV MYSQL_DATABASE=demodb
+
+#copy init.sql file into docker
+COPY init.sql /docker-entrypoint-initdb.d/
+
+#port number
+EXPOSE 3306
+
+
