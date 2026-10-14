@@ -1,0 +1,18 @@
+#pull python from docker hub
+FROM python:3.9-slim
+
+#Create working dir
+WORKDIR /app
+
+COPY requirements.txt /app
+
+# run requirements.txt
+RUN pip install --no-cache-dir  -r requirements.txt 
+
+#copy
+COPY  . /app
+
+EXPOSE 5000
+
+#command line
+CMD ["python" , "app.py"]
